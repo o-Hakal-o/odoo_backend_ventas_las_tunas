@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_producto_all,producto.all,model_producto,base.group_user,1,1,1,1
+access_cierre_user,cierre.user,model_cierre,base.group_user,1,1,1,1
+access_producto_public,model_producto,model_producto,base.group_public,1,0,0,0

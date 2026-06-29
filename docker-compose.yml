@@ -1,0 +1,39 @@
+services: #Docker-compose.yml
+  web:
+    build: .
+    image: odoo:18.0 
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./custom_addons:/mnt/extra-addons
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=my_strong_password 
+  
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=my_strong_password 
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+
+ # NUEVO SERVICIO: Túnel de Ngrok
+  ngrok:
+    image: ngrok/ngrok:latest
+    command: http --url=facsimile-arrive-resurrect.ngrok-free.dev web:8069
+    environment:
+      # Pega aquí el token largo que copiaste
+      - NGROK_AUTHTOKEN=3Fe0eHWFVHZDzYYs55q0eCp3err_5Yo172t6WTmGV1nuxmRwf
+    depends_on:
+      - web
+
+volumes:
+  odoo-web-data:
+  odoo-db-data:

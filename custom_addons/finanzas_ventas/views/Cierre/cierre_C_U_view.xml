@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="cierre_C_U" model="ir.ui.view">
+        <field name="name">Cierre</field>
+        <field name="model">cierre</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="ganancia_total"/>
+                            <field name="total_productos"/>
+                            <field name="fecha_cierre"/>
+                            <field name="pagar_a_compannias" />
+                        </group>
+
+                        <group>
+                          <field name="producto_ids" widget="many2many_tags"  options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form> 
+        </field>
+    </record>
+</odoo>

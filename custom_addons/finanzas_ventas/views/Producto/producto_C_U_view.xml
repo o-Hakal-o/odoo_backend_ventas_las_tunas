@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="producto_C_U_view" model="ir.ui.view">
+        <field name="name">producto_C_U_view</field>
+        <field name="model">producto</field>
+        <field name="arch" type ="xml">
+            <form string ="Productos"><!-- this here defines this view as a formulary this one will open when we create or delete a product-->
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="titulo" placeholder="El titulo de su producto." />
+                            <field name="numero_de_serie" placeholder="El número de serie de su producto." />
+                            <field name="precio_costo" placeholder="Cuanto te costó tu producto." />
+                            <field name="precio_venta" placeholder="El precio de venta de su producto." />
+                            <field name="compannia" placeholder="Nombre de la compañia de donde proviene tu producto." />
+                            <field name="ancho" placeholder="¿Cuan ancho es tu producto en cm?"/>
+                            <field name="largo" placeholder="¿Cuan largo es tu preoducto en cm?" />
+                        </group>
+                        
+                        <group>
+                            <field name="alto" placeholder="¿Cuan alto es su producto en cm?" />
+                            <field name="peso" placeholder="¿Cuanto pesa su producto en kg?"/>
+                            <field name="volumen_aprox" placeholder="se generará el volumen aproximado de su producto en metros cúbicos" />
+                            <field name="imagen" widget="image" options="{'size': [100, 100]}" placeholder="Agrege una Imagen de su producto"/>
+                            <field name="stock" />
+                            <field name="ganancia" placeholder="Se generara la ganacia por venta de este producto" />
+                            <field name="ventas"/>
+                            <div class="o_row">
+                                <button name="action_decrementar" type="object" string="-" class="oe_stat_button" icon="fa-minus"/>                        
+                                <button name="action_incrementar" type="object" string="+" class="oe_stat_button" icon="fa-minus"/>
+                            </div>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="name" string="Descripción">
+                            <field name="descripcion" placeholder=" Informacion valiosa sobre su producto." />
+                        </page>
+                        <page>
+                            <field name='cierre_ids' placeholder ='Cierres en los que participará el producto'/>
+                        </page>
+                        <page>
+                        </page>
+                    </notebook>
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

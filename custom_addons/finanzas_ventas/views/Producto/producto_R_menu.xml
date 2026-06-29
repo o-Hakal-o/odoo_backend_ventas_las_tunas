@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="producto_R_menu" model="ir.ui.view">
+        <field name="name">producto_R_menu</field>
+        <field name="model">producto</field>
+        <field name="arch" type ="xml">
+            <list  decoration-danger="stock == False" decoration-success="stock == True" string ="Libros"> 
+                 <!--Al poner le estás diciendo a Odoo que no abra el formulario
+                 completo en una pantalla nueva cuando el usuario haga clic en 
+                 un registro o intente crear uno nuevo. En su lugar, el usuario 
+                 podrá editar los datos directamente sobre las filas de la tabla 
+                 (como si fuera una hoja de Excel), y las nuevas filas se añadirán 
+                 siempre en la parte superior de la lista.-->
+                <field name="titulo"/>
+                <field name="numero_de_serie"/>
+                <field name="precio_costo"/>
+                <field name="precio_venta" />
+                <field name="ganancia" />
+                <field name="compannia"/>
+                <field name="ancho"/>
+                <field name="largo"/>
+                <field name="alto"/>
+                <field name="peso"/>
+                <field name="volumen_aprox"/>
+                <field name="imagen" widget="image" options="{'size': [100, 100]}"/>
+                <field name="stock"/>
+                <field name="descripcion" />
+                <field name="ventas" />
+                <field name="cierre_ids" placeholder="Cierres diarios en los que participó este producto" widget="many2many_tags"/>
+                                                                                                                    
+
+            </list>
+        </field>
+    </record>
+    <!-- <record id="action_producto" model="ir.actions.act_window">
+        <field name="name">Productos</field>
+        <field name="res_model">producto</field> <field name="view_mode">list,form</field> </record>
+
+    <menuitem id="menu_finanzas_ventas_root" name="Finanzas Ventas" sequence="10"/>
+
+    <menuitem id="menu_producto_action" 
+              name="Inventario de Libros" 
+              parent="menu_finanzas_ventas_root" 
+              action="action_producto" 
+              sequence="10"/> -->
+</odoo>
